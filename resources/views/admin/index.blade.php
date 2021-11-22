@@ -11,6 +11,6 @@
     <div class="container-scroller">
         @include("admin.navbar")
     </div>
-        @include("footer.navbar")
+        @include("admin.footer")
   </body>
 </html>
