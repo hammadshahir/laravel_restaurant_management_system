@@ -28,7 +28,7 @@
                     @if ($item->user_type == '0')
                         <td><a href="{{url('/delete', $item->id)}}">Delete</a></td>
                     @else
-                        <td></td>
+                        <td>Adminstrator</td>
                     @endif
                 </tr>
                 @endforeach
