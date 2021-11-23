@@ -16,7 +16,7 @@
         </a>
       </li>
       <li class="nav-item menu-items">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{url('/foodmenu')}}">
           <span class="menu-icon">
             <i class="mdi mdi-food-croissant"></i>
           </span>
