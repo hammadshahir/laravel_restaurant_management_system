@@ -45,7 +45,7 @@
                         <th  style="padding: 30px">Price</th>
                         <th  style="padding: 50px">Description</th>
                         <th style="padding: 30px">Image</th>
-                        <th style="padding: 30px">Actions</th>
+                        <th style="padding: 30px" colspan="2">Actions</th>
                     </tr>
                     @foreach ($data as $item)
                     <tr align="center">
@@ -54,6 +54,7 @@
                         <td>{{$item->description}}</td>
                         <td><img height="100" width="100" src="/foodimages/{{$item->image}}"></td>
                         <td><a href="{{url('/deletemenu', $item->id)}}">Delete</a></td>
+                        <td><a href="{{url('/updateview', $item->id)}}">| Update</a></td>
                       </tr>
                     @endforeach
 
