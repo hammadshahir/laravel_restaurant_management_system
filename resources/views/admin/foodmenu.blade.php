@@ -34,11 +34,37 @@
                     <input type="file" class="form-control-file" name="image">
                 </div>
 
-                <input type="submit" class="btn btn-pill btn-success" value="Insert">
+                <input type="submit" class="btn btn-pill btn-success" value="Insert Record">
 
             </form>
+
+            <div>
+                <table>
+                    <tr>
+                        <th style="padding: 30px">Name</th>
+                        <th  style="padding: 30px">Price</th>
+                        <th  style="padding: 50px">Description</th>
+                        <th style="padding: 30px">Image</th>
+                        <th style="padding: 30px">Actions</th>
+                    </tr>
+                    @foreach ($data as $item)
+                    <tr align="center">
+                        <td>{{$item->title}}</td>
+                        <td>{{$item->price}}</td>
+                        <td>{{$item->description}}</td>
+                        <td><img height="100" width="100" src="/foodimages/{{$item->image}}"></td>
+                        <td><a href="{{url('/deletemenu', $item->id)}}">Delete</a></td>
+                      </tr>
+                    @endforeach
+
+                </table>
+            </div>
+
         </div>
+
     </div>
+
+
 
         @include("admin.footer")
   </body>
