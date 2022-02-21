@@ -9,20 +9,19 @@
   </head>
   <body>
     <div class="container-scroller">
-
         @include("admin.navbar")
         <div style="position: relative; top: 60px; right: -60px">
             <H1>RESERVATIONS:</H1>
             <table class="table table-dark">
                 <thead>
                     <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">No. of Guests</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Time</th>
-                    <th scope="col">Message</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">No. of Guests</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Message</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,7 +41,6 @@
             </table>
         </div>
     </div>
-
         @include("admin.footer")
   </body>
 </html>

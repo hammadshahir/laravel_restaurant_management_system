@@ -24,7 +24,7 @@
         </a>
       </li>
       <li class="nav-item menu-items">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{url('/chef')}}">
           <span class="menu-icon">
             <i class="mdi mdi-chef-hat"></i>
           </span>
@@ -32,7 +32,7 @@
         </a>
       </li>
       <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('viewreservations')}}">
+        <a class="nav-link" href="{{url('/viewreservations')}}">
           <span class="menu-icon">
             <i class="mdi mdi-calendar-range"></i>
           </span>

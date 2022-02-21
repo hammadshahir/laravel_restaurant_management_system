@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Food;
 use App\Models\Reservation;
+use App\Models\Chef;
 
 class AdminController extends Controller
 {
@@ -105,5 +106,78 @@ class AdminController extends Controller
 
         return view("admin.reserves", compact("data"));
     }
+
+
+    public function viewchef()
+    {
+        $data = chef::all();
+
+        return view('admin.chefs', compact('data'));
+    }
+
+    public function insertchef(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048'
+        ]);
+
+        $newImageName = time() . '-' . $request->name . '.' . $request->image->extension();
+
+        $request->image->move(public_path('chefimage'), $newImageName);
+
+
+        $data = Chef::create([
+            'name' => $request->input('name'),
+            'speciality' => $request->input('speciality'),
+            'image' => $newImageName,
+            'instagram' => $request->input('instagram'),
+
+        ]);
+
+        return redirect()->back();
+
+    }
+
+    public function updatechef($id)
+    {
+        $data = chef::find($id);
+
+        return view('admin.updatechef', compact("data"));
+    }
+
+    public function updatechefrecord(Request $request, $id)
+    {
+        $data = chef::find($id);
+
+        $image = $request->image;
+
+        $request->validate([
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048'
+        ]);
+
+        if ($image) {
+            $newImageName = time() . '-' . $request->name . '.' . $request->image->extension();
+            $request->image->move(public_path('chefimage'), $newImageName);
+            $data->image = $newImageName;
+        }
+
+        $data->name = $request->name;
+        $data->speciality = $request->speciality;
+        $data->instagram = $request->instagram;
+
+        $data->save();
+
+        return redirect()->back();
+
+    }
+
+    public function deletechef($id)
+    {
+        $data = chef::find($id);
+        $data->delete();
+
+        return redirect()->back();
+    }
+
 
 }
