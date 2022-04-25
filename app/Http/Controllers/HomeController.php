@@ -61,10 +61,15 @@ class HomeController extends Controller
 
     public function show_cart(Request $request, $id)
     {
-        $count = cart::where('user_id', $id)->count();
-        $data = cart::where('user_id', $id)->join('food', 'carts.food_id', '=', 'food.id')->get();
-        $cartItem = cart::select('*')->where('user_id', '=', $id)->get();
-        return view('showcart', compact('count', 'data', 'cartItem'));
+        if(Auth::id()==$id) {
+            $count = cart::where('user_id', $id)->count();
+            $data = cart::where('user_id', $id)->join('food', 'carts.food_id', '=', 'food.id')->get();
+            $cartItem = cart::select('*')->where('user_id', '=', $id)->get();
+            return view('showcart', compact('count', 'data', 'cartItem'));
+        } else {
+            return redirect()->back();
+        }
+        
     }
 
     public function remove_cart_item($id)
