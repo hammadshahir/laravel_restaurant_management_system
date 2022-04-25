@@ -41,6 +41,12 @@ Route::post('/insertchef', [AdminController::class, "insertchef"]);
 Route::get('/updatechef/{id}', [AdminController::class, "updatechef"]);
 Route::post('/updatechefrecord/{id}', [AdminController::class, "updatechefrecord"]);
 Route::get('/deletechef/{id}', [AdminController::class, "deletechef"]);
+Route::get('/vieworders', [AdminController::class, "vieworders"]);
+
+Route::post('/addcart/{id}', [HomeController::class, "add_cart"]);
+Route::get('/showcart/{id}', [HomeController::class, "show_cart"]);
+Route::get('/remove/{id}', [HomeController::class, "remove_cart_item"]);
+Route::post('/confirmorder', [HomeController::class, "confirm_order"]);
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

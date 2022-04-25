@@ -54,6 +54,7 @@
                             <td>{{$item->instagram}}</td>
                             <td><a href = "{{url('/updatechef', $item->id)}}">Update</td>
                             <td><a href = "{{url('/deletechef', $item->id)}}">Delete</td>
+
                         </tr>
                         @endforeach
                     </tbody>

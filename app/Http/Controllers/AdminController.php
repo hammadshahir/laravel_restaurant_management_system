@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// Bring Models
 use App\Models\User;
 use App\Models\Food;
 use App\Models\Reservation;
 use App\Models\Chef;
+use App\Models\Order;
 
 class AdminController extends Controller
 {
@@ -178,6 +180,15 @@ class AdminController extends Controller
 
         return redirect()->back();
     }
+
+
+     public function vieworders()
+    {
+       $data = order::all();
+
+        return view('admin.vieworders', compact('data'));
+    }
+
 
 
 }
